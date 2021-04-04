@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import {Switch, Route, Link, Redirect} from "react-router-dom";
+import style from './Json.module.css';
+import Album from "./json/Album";
 
 function Albums() {
     const [albums, setAlbums] = useState([]);
@@ -15,12 +18,21 @@ function Albums() {
     }, []);
 
     return (
-        <div>
-            <ul>
-                {
-                    albums.map(value => <li key={value.id}>{value.id} - {value.title}</li>)
-                }
-            </ul>
+        <div className={style.json}>
+            <div className={style.array}>
+                <ul>
+                    {
+                        albums.map(value => <Link to={`/albums/${value.id}`} key={value.id}> <li>{value.id} - {value.title}</li> </Link>)
+                    }
+                </ul>
+            </div>
+
+            <Switch>
+                <Route path={'/albums/:id'} component={Album} exact />
+                <Route>
+                    <Redirect to={'/albums'} />
+                </Route>
+            </Switch>
         </div>
     );
 }

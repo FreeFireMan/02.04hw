@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from '../Json.module.css';
-import {BrowserRouter as Router, Switch, Route, Link, Redirect, useParams, useHistory} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 
 function Post() {
     const [post, setPost] = useState();
@@ -20,11 +20,11 @@ function Post() {
     }, [id]);
 
     const prevPost = () => {
-        history.push(`/posts/${+id - 1}`);
+        id > 1 && history.push(`/posts/${+id - 1}`);
     };
 
     const nextPost = () => {
-        history.push(`/posts/${+id + 1}`);
+        id < 100 && history.push(`/posts/${+id + 1}`);
     };
 
     return (
@@ -41,7 +41,6 @@ function Post() {
                 <button onClick={prevPost}>prev post</button>
                 <button onClick={nextPost}>next post</button>
             </div>
-            <input placeholder={'enter post id'}/>
         </div>
     );
 }

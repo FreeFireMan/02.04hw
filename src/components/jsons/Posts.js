@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
+import {Switch, Route, Link, Redirect} from "react-router-dom";
 import style from './Json.module.css';
 import Post from "./json/Post";
 
@@ -31,7 +31,9 @@ function Posts() {
                 <Route path="/posts/:id" exact>
                     <Post />
                 </Route>
-                <Route> <Redirect to={'/posts'} /> </Route>
+                <Route>
+                    <Redirect to={'/posts'} />
+                </Route>
             </Switch>
         </div>
     );

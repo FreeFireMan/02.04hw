@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import {Switch, Route, Link, Redirect} from "react-router-dom";
+import style from './Json.module.css';
+import User from "./json/User";
 
 function Users() {
     const [users, setUsers] = useState([]);
@@ -15,12 +18,19 @@ function Users() {
     }, []);
 
     return (
-        <div>
-            <ul>
-                {
-                    users.map(value => <li key={value.id}>{value.id} - {value.name} - {value.username}</li>)
-                }
-            </ul>
+        <div className={style.json}>
+            <div className={style.array}>
+                <ul>
+                    {
+                        users.map(value => <Link to={`/users/${value.id}`} key={value.id}> <li>{value.id} - {value.name} - {value.username}</li> </Link>)
+                    }
+                </ul>
+            </div>
+
+            <Switch>
+                <Route path={'/users/:id'} component={User} exact />
+                <Route> <Redirect to={'/users'} /> </Route>
+            </Switch>
         </div>
     );
 }

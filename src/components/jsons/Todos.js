@@ -1,4 +1,7 @@
 import React, {useEffect, useState} from 'react';
+import {Switch, Route, Link, Redirect} from "react-router-dom";
+import style from './Json.module.css';
+import Todo from "./json/Todo";
 
 function Todos() {
     const [todos, setTodos] = useState([]);
@@ -15,12 +18,19 @@ function Todos() {
     }, []);
 
     return (
-        <div>
-            <ul>
-                {
-                    todos.map(value => <li key={value.id}>{value.id} - {value.title}</li>)
-                }
-            </ul>
+        <div className={style.json}>
+            <div className={style.array}>
+                <ul>
+                    {
+                        todos.map(value => <Link to={`/todos/${value.id}`} key={value.id}> <li>{value.id} - {value.title}</li> </Link>)
+                    }
+                </ul>
+            </div>
+
+            <Switch>
+                <Route path={'/todos/:id'} component={Todo} exact />
+                <Route> <Redirect to={'/todos'} /> </Route>
+            </Switch>
         </div>
     );
 }
