@@ -1,0 +1,17 @@
+.header {
+    background: aquamarine;
+    padding: 10px;
+}
+.header > h1 {
+    text-align: center;
+    color: blue;
+    padding-bottom: 30px;
+}
+.nav {
+    display: flex;
+    justify-content: space-around;
+}
+.nav > div > a {
+    color: darkblue;
+    text-decoration: none;
+}
