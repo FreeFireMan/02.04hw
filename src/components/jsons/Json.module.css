@@ -1,0 +1,34 @@
+.json {
+    display: flex;
+}
+
+.array {
+    border: 1px solid;
+    width: 50%;
+    padding: 20px;
+}
+.array > ul {
+    list-style: none;
+}
+
+.item {
+    width: 50%;
+    padding: 30px;
+}
+.item > h3 {
+    text-align: center;
+    padding: 20px;
+}
+.btns {
+    padding-top: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+.btns > button {
+    font-size: 15px;
+    padding: 5px;
+}
+.item > input {
+    display: block;
+    margin: 10px auto;
+}

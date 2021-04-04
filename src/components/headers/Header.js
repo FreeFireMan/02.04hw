@@ -1,8 +1,12 @@
 import React from 'react';
-import {BrowserRouter as Router, Switch, Route, Link} from "react-router-dom";
+import {BrowserRouter as Router, Switch, Route, Link, Redirect} from "react-router-dom";
 import style from './Header.module.css';
 import Posts from "../jsons/Posts";
-
+import Comments from "../jsons/Comments";
+import Albums from "../jsons/Albums";
+import Photos from "../jsons/Photos";
+import Todos from "../jsons/Todos";
+import Users from "../jsons/Users";
 
 function Header() {
     return (
@@ -22,10 +26,11 @@ function Header() {
         <Switch>
             <Route path="/posts" component={Posts} />
             <Route path="/comments" component={Comments} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/posts" component={Posts} />
-            <Route path="/posts" component={Posts} />
+            <Route path="/albums" component={Albums} />
+            <Route path="/photos" component={Photos} />
+            <Route path="/todos" component={Todos} />
+            <Route path="/users" component={Users} />
+            <Route> <Redirect to={'/posts'} /> </Route>
         </Switch>
         </Router>
     );
