@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import style from '../Json.module.css';
-import {BrowserRouter as Router, Switch, Route, Link, Redirect, useParams, useHistory} from "react-router-dom";
+import {useParams, useHistory} from "react-router-dom";
 
 function Comment() {
     const [comment, setComment] = useState();
